@@ -18,6 +18,9 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { s3, upload } from '../config/multer.js';
 
 // router.get('/',userController.userLogin)
+router.get('/', (req, res) => {
+  res.send('gfgdfgdf');
+});
 
 //================== SIGNUP ================
 router.post('/', userController.userLogin);
