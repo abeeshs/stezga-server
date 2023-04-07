@@ -17,12 +17,14 @@ app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(cors({
-  origin:["http://localhost:3000", "https://stezga-app.onrender.com"]
-}));
+app.use(
+  cors({
+    origin: 'https://stezga-app.onrender.com',
+  })
+);
 connectDB();
 app.use(express.static('public'));
-const PORT = process.env.PORT||8000;
+const PORT = process.env.PORT || 8000;
 
 app.use('/admin', adminRouter);
 app.use('/', userRouter);
@@ -33,11 +35,10 @@ const server = app.listen(PORT, () => {
   console.log(`server running on port:${PORT}`);
 });
 
-
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: 'http://localhost:3000',
+    origin: 'https://stezga-app.onrender.com',
   },
 });
 
