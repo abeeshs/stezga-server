@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
+    //   origin: 'http://localhost:3000',
     origin: 'https://stezga-app.onrender.com',
   })
 );
@@ -38,6 +39,7 @@ const server = app.listen(PORT, () => {
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
+    // origin: 'http://localhost:3000',
     origin: 'https://stezga-app.onrender.com',
   },
 });

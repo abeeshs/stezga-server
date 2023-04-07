@@ -23,3 +23,4 @@ export const getAdminDetails = asyncHandler(async (id) => {
 	const result = await Admin.findById(id);
 	return result;
 });
+
